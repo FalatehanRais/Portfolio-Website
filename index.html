@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falatehan Rais | UI/UX & Graphic Designer Portfolio</title>
+  <meta name="description" content="Falatehan Rais is a UI/UX and graphic designer specializing in user-centered design, digital interfaces, and visual identity. Based in Indonesia, creating impactful design solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #0f0f0f;
+      --color-surface: #1a1a1a;
+      --color-surface-elevated: #242424;
+      --color-text: #f5f5f5;
+      --color-text-muted: #a3a3a3;
+      --color-accent: #dc2626;
+      --color-accent-hover: #b91c1c;
+      --color-accent-muted: rgba(220, 38, 38, 0.15);
+      --color-border: #2a2a2a;
+      --font-sans: 'DM Sans', system-ui, sans-serif;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --space-xs: 0.5rem;
+      --space-sm: 1rem;
+      --space-md: 1.5rem;
+      --space-lg: 2rem;
+      --space-xl: 3rem;
+      --space-2xl: 4rem;
+      --radius: 10px;
+      --radius-lg: 16px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-accent: 0 8px 32px rgba(220, 38, 38, 0.25);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: var(--radius);
+      z-index: 100;
+      transition: top 0.2s;
+    }
+
+    .skip-link:focus {
+      top: var(--space-sm);
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 var(--space-md);
+    }
+
+    /* Header & Navigation */
+    header {
+      background: rgba(15, 15, 15, 0.9);
+      border-bottom: 1px solid var(--color-border);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-md) 0;
+    }
+
+    .logo {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--color-text);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .logo:hover {
+      color: var(--color-accent);
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: var(--space-lg);
+    }
+
+    nav a {
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width 0.2s;
+    }
+
+    nav a:hover,
+    nav a:focus {
+      color: var(--color-text);
+    }
+
+    nav a:hover::after,
+    nav a:focus::after {
+      width: 100%;
+    }
+
+    /* Hero */
+    .hero {
+      padding: var(--space-2xl) 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 60%;
+      height: 140%;
+      background: radial-gradient(ellipse, var(--color-accent-muted) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.75rem, 5.5vw, 4.25rem);
+      font-weight: 400;
+      margin: 0 0 var(--space-md);
+      line-height: 1.1;
+    }
+
+    .hero-text h1 .accent {
+      color: var(--color-accent);
+      font-style: italic;
+    }
+
+    .hero .tagline {
+      font-size: 1.125rem;
+      color: var(--color-text-muted);
+      margin: 0 0 var(--space-lg);
+      max-width: 28ch;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-lg);
+      background: var(--color-accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: var(--radius);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .hero-cta:hover,
+    .hero-cta:focus {
+      background: var(--color-accent-hover);
+      box-shadow: var(--shadow-accent);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      justify-self: end;
+    }
+
+    .hero-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -8px;
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      z-index: 0;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 680px;
+      height: auto;
+      object-fit: contain;
+      border-radius: var(--radius-lg);
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+
+    /* Sections */
+    section {
+      padding: var(--space-2xl) 0;
+    }
+
+    section:nth-child(even) {
+      background: var(--color-surface);
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: 0 0 var(--space-lg);
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    h2::before {
+      content: '';
+      width: 4px;
+      height: 1.4em;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .about-content {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .about-content p {
+      margin: 0;
+      color: var(--color-text-muted);
+      max-width: 65ch;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-md);
+    }
+
+    .skill-card {
+      background: var(--color-surface-elevated);
+      padding: var(--space-md);
+      border-radius: var(--radius);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid transparent;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    }
+
+    .skill-card:hover,
+    .skill-card:focus-within {
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+      border-left-color: var(--color-accent);
+      background: var(--color-accent-muted);
+    }
+
+    .skill-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 var(--space-xs);
+      color: var(--color-text);
+    }
+
+    .skill-card p {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    /* Projects */
+    .projects-list {
+      display: grid;
+      gap: var(--space-lg);
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: var(--space-lg);
+      padding: 0;
+      background: var(--color-surface-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-accent);
+    }
+
+    .project-card-image {
+      aspect-ratio: 16 / 10;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-card-body {
+      padding: var(--space-lg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 var(--space-sm);
+      color: var(--color-text);
+    }
+
+    .project-card h3 a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .project-card h3 a:hover {
+      color: var(--color-accent);
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+    }
+
+    /* Interests */
+    #interests h2 {
+      margin-bottom: var(--space-md);
+    }
+
+    #interests .section-description {
+      margin: 0 0 var(--space-xl);
+      color: var(--color-text-muted);
+      max-width: 70ch;
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .interest-subsection {
+      margin-bottom: var(--space-2xl);
+    }
+
+    .interest-subsection:last-child {
+      margin-bottom: 0;
+    }
+
+    #interests h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0 0 var(--space-md);
+      color: var(--color-text);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    #interests h3::before {
+      content: '';
+      width: 3px;
+      height: 1.2em;
+      background: var(--color-accent);
+      border-radius: 2px;
+    }
+
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+
+    .sport-card {
+      background: var(--color-surface-elevated);
+      border-radius: var(--radius);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .sport-card:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+
+    .sport-card img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sport-card span {
+      display: block;
+      padding: var(--space-md);
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: var(--color-text);
+      text-align: center;
+    }
+
+    .interest-subsection-with-image {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: var(--space-xl);
+      align-items: start;
+    }
+
+    .interest-image-wrap {
+      width: fit-content;
+      max-width: 100%;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+    }
+
+    .interest-image-wrap img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+    }
+
+    .games-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+
+    .games-list h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-accent);
+      margin: 0 0 var(--space-sm);
+    }
+
+    .games-list ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .movies-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .games-list li,
+    .movies-list li {
+      padding: var(--space-sm) 0;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.9375rem;
+    }
+
+    .games-list li:last-child,
+    .movies-list li:last-child {
+      border-bottom: none;
+    }
+
+    .movies-list h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-accent);
+      margin: 0 0 var(--space-sm);
+    }
+
+    @media (max-width: 640px) {
+      .sports-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .interest-subsection-with-image {
+        grid-template-columns: 1fr;
+      }
+
+      .games-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Contact */
+    .contact-content {
+      max-width: 480px;
+    }
+
+    .contact-content p {
+      margin: 0 0 var(--space-lg);
+      color: var(--color-text-muted);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-md);
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm) var(--space-md);
+      background: var(--color-accent);
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: var(--radius);
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .contact-links a:hover,
+    .contact-links a:focus {
+      background: var(--color-accent-hover);
+      box-shadow: 0 4px 16px rgba(220, 38, 38, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      padding: var(--space-lg) 0;
+      border-top: 2px solid var(--color-accent);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero .tagline {
+        max-width: none;
+      }
+
+      .hero-image-wrap {
+        justify-self: center;
+        max-width: 420px;
+      }
+
+      .hero-cta {
+        margin: 0 auto;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card-image {
+        aspect-ratio: 16 / 10;
+      }
+    }
+
+    @media (max-width: 640px) {
+      nav ul {
+        gap: var(--space-md);
+      }
+
+      .hero {
+        padding: var(--space-xl) 0;
+      }
+
+      section {
+        padding: var(--space-xl) 0;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Scroll animations */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+    }
+
+    /* Stagger animation delays for child elements */
+    .fade-in-up-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .fade-in-up-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .fade-in-up-delay-3 {
+      transition-delay: 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header role="banner">
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Falatehan Rais home">Falatehan Rais</a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#interests">Interests</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" role="main">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <h1 id="hero-heading">Falatehan <span class="accent">Rais</span></h1>
+            <p class="tagline">UI/UX & Graphic Designer — Crafting user-centered digital experiences</p>
+            <a href="#contact" class="hero-cta">Get in touch</a>
+          </div>
+          <div class="hero-image-wrap">
+            <img
+              src="https://media.licdn.com/dms/image/v2/D5603AQHLdCdV_ldp9g/profile-displayphoto-shrink_200_200/B56ZnU.y.8I8AY-/0/1760214856461?e=1773273600&v=beta&t=2Jjqo6-PXFysfrajE3TQ14l31rS33DRhMcFWfYBqYyM"
+              alt="Falatehan Rais, UI/UX and graphic designer"
+              class="hero-image"
+              width="600"
+              height="600"
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-heading">
+      <div class="container">
+        <h2 id="about-heading">About Me — Design Background & Focus</h2>
+        <div class="about-content">
+          <p>
+            I'm a UI/UX and graphic designer with a strong foundation in visual design and user experience. My education in design has equipped me with principles in typography, color theory, and human-centered design methodologies.
+          </p>
+          <p>
+            I focus on creating intuitive interfaces, cohesive brand identities, and meaningful user experiences across web and mobile. Whether it's wireframing, prototyping, or visual design, I aim to deliver solutions that are both beautiful and functional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-heading">
+      <div class="container">
+        <h2 id="skills-heading">Skills — UI/UX & Graphic Design Expertise</h2>
+        <div class="skills-grid">
+          <article class="skill-card">
+            <h3>UI Design</h3>
+            <p>Interface design, components, design systems</p>
+          </article>
+          <article class="skill-card">
+            <h3>UX Research</h3>
+            <p>User research, usability testing, personas</p>
+          </article>
+          <article class="skill-card">
+            <h3>Wireframing & Prototyping</h3>
+            <p>Figma, flows, interactive prototypes</p>
+          </article>
+          <article class="skill-card">
+            <h3>Graphic Design</h3>
+            <p>Brand identity, typography, layout</p>
+          </article>
+          <article class="skill-card">
+            <h3>Visual Design</h3>
+            <p>Color, composition, iconography</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests" aria-labelledby="interests-heading">
+      <div class="container">
+        <h2 id="interests-heading">Things I'm Interested In</h2>
+        <p class="section-description">
+          As the saying goes, "You are what you consume"—and this rings especially true for designers. The media, culture, and experiences I engage with shape my creative perspective and inform my design decisions. These interests serve as a wellspring of inspiration, influencing my aesthetic sensibilities and helping me develop a distinct voice in UI/UX and graphic design. By exploring diverse forms of storytelling, visual language, and interactive experiences, I continuously refine my understanding of what resonates with people—ultimately enhancing my ability to create meaningful and impactful designs.
+        </p>
+
+        <div class="interest-subsection">
+          <h3 id="sports-heading">Sports I'm Interested In</h3>
+          <div class="sports-grid" aria-labelledby="sports-heading">
+            <div class="sport-card">
+              <img src="https://picsum.photos/seed/bicycle/400/300" alt="Cycling and bicycle" width="400" height="300">
+              <span>Bicycle</span>
+            </div>
+            <div class="sport-card">
+              <img src="https://picsum.photos/seed/badminton/400/300" alt="Badminton" width="400" height="300">
+              <span>Badminton</span>
+            </div>
+            <div class="sport-card">
+              <img src="https://picsum.photos/seed/billiard/400/300" alt="Billiard and pool" width="400" height="300">
+              <span>Billiard</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="interest-subsection">
+          <h3 id="games-heading">Games</h3>
+          <div class="interest-subsection-with-image" aria-labelledby="games-heading">
+            <div class="interest-image-wrap">
+              <img src="https://picsum.photos/seed/gaming/560/420" alt="Video games and gaming" width="560" height="420">
+            </div>
+            <div class="games-row">
+              <div class="games-list">
+                <h4>Top 3 favorite games</h4>
+                <ul>
+                  <li>The Witcher 3: Wild Hunt</li>
+                  <li>Elden Ring</li>
+                  <li>Red Dead Redemption 2</li>
+                </ul>
+              </div>
+              <div class="games-list">
+                <h4>Currently playing</h4>
+                <ul>
+                  <li>Baldur's Gate 3</li>
+                  <li>Hades II</li>
+                  <li>Helldivers 2</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="interest-subsection">
+          <h3 id="movies-heading">Top 3 Favorite Movies</h3>
+          <div class="interest-subsection-with-image" aria-labelledby="movies-heading">
+            <div class="interest-image-wrap">
+              <img src="https://picsum.photos/seed/cinema/560/420" alt="Movies and cinema" width="560" height="420">
+            </div>
+            <ul class="movies-list">
+              <li>Inception</li>
+              <li>Interstellar</li>
+              <li>The Shawshank Redemption</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="interest-subsection">
+          <h3 id="books-heading">Books</h3>
+          <div class="interest-subsection-with-image" aria-labelledby="books-heading">
+            <div class="interest-image-wrap">
+              <img src="https://picsum.photos/seed/books/560/420" alt="Books and reading" width="560" height="420">
+            </div>
+            <div class="games-row">
+              <div class="games-list">
+                <h4>Top 3 favorite books</h4>
+                <ul>
+                  <li>The Design of Everyday Things</li>
+                  <li>Don't Make Me Think</li>
+                  <li>Atomic Design</li>
+                </ul>
+              </div>
+              <div class="games-list">
+                <h4>Recently read</h4>
+                <ul>
+                  <li>Thinking, Fast and Slow</li>
+                  <li>Steal Like an Artist</li>
+                  <li>The Elements of Typographic Style</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-heading">
+      <div class="container">
+        <h2 id="projects-heading">Projects — UI/UX & Design Work</h2>
+        <div class="projects-list">
+          <article class="project-card">
+            <img
+              src="https://picsum.photos/seed/ecommerce/800/500"
+              alt="E-commerce app redesign — mobile and desktop screens"
+              class="project-card-image"
+              width="800"
+              height="500"
+            >
+            <div class="project-card-body">
+              <h3><a href="#">E-commerce App Redesign</a></h3>
+              <p>End-to-end UI/UX redesign for a retail app — improved checkout flow and visual hierarchy for better conversion and usability.</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <img
+              src="https://picsum.photos/seed/brand/800/500"
+              alt="Brand identity and website design — logo and landing page"
+              class="project-card-image"
+              width="800"
+              height="500"
+            >
+            <div class="project-card-body">
+              <h3><a href="#">Brand Identity & Website</a></h3>
+              <p>Visual identity and responsive website design for a startup — logo, style guide, and landing page with a clean, modern aesthetic.</p>
+            </div>
+          </article>
+          <article class="project-card">
+            <img
+              src="https://picsum.photos/seed/dashboard/800/500"
+              alt="Dashboard and data visualization UI"
+              class="project-card-image"
+              width="800"
+              height="500"
+            >
+            <div class="project-card-body">
+              <h3><a href="#">Dashboard & Data Visualization</a></h3>
+              <p>Dashboard UI design with clear data visualization and navigation — focused on clarity and accessibility for daily use.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading">Contact — Let's Work Together</h2>
+        <div class="contact-content">
+          <p>Interested in collaborating or have a project in mind? Get in touch — I'd love to hear from you.</p>
+          <div class="contact-links">
+            <a href="mailto:hello@falatehanrais.com">Email</a>
+            <a href="https://linkedin.com/in/falatehanrais" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://dribbble.com/falatehanrais" target="_blank" rel="noopener noreferrer">Dribbble</a>
+            <a href="https://behance.net/falatehanrais" target="_blank" rel="noopener noreferrer">Behance</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Falatehan Rais. UI/UX & Graphic Designer Portfolio.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Stop observing once animated
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections and animated elements
+    document.addEventListener('DOMContentLoaded', () => {
+      // Add fade-in-up class to main sections
+      const sections = document.querySelectorAll('section:not(.hero)');
+      sections.forEach(section => {
+        section.classList.add('fade-in-up');
+        observer.observe(section);
+      });
+
+      // Add staggered animations to skill cards
+      const skillCards = document.querySelectorAll('.skill-card');
+      skillCards.forEach((card, index) => {
+        card.classList.add('fade-in-up');
+        if (index > 0) {
+          card.classList.add(`fade-in-up-delay-${Math.min(index, 3)}`);
+        }
+        observer.observe(card);
+      });
+
+      // Add staggered animations to project cards
+      const projectCards = document.querySelectorAll('.project-card');
+      projectCards.forEach((card, index) => {
+        card.classList.add('fade-in-up');
+        if (index > 0) {
+          card.classList.add(`fade-in-up-delay-${Math.min(index, 2)}`);
+        }
+        observer.observe(card);
+      });
+
+      // Add animations to interest subsections
+      const interestSubsections = document.querySelectorAll('.interest-subsection');
+      interestSubsections.forEach((subsection, index) => {
+        subsection.classList.add('fade-in-up');
+        if (index > 0) {
+          subsection.classList.add(`fade-in-up-delay-${Math.min(index, 2)}`);
+        }
+        observer.observe(subsection);
+      });
+
+      // Add animations to sport cards
+      const sportCards = document.querySelectorAll('.sport-card');
+      sportCards.forEach((card, index) => {
+        card.classList.add('fade-in-up');
+        if (index > 0) {
+          card.classList.add(`fade-in-up-delay-${Math.min(index, 2)}`);
+        }
+        observer.observe(card);
+      });
+    });
+  </script>
+</body>
+</html>
